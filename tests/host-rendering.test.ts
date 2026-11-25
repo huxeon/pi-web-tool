@@ -39,7 +39,7 @@ test("Pi's actual tool component displays search results without forwarding stru
   component.setExpanded(true);
   const expanded = output();
   for (const text of ["Article 1", "Article 2", "UI snippet 1", "UI snippet 2", "https://example.com/2"]) assert(expanded.includes(text));
-  for (const text of ["MODEL SUMMARY", "PRIVATE PAGE BODY", "pi-dsweb-search-", "result-1.md"]) assert(!expanded.includes(text));
+  for (const text of ["MODEL SUMMARY", "PRIVATE PAGE BODY", "pi-web-tool-search-", "result-1.md"]) assert(!expanded.includes(text));
   assert(received);
   assert.equal(received.structuredContent, undefined);
   assert.deepEqual(Object.keys(received).sort(), ["content", "details"]);

@@ -16,7 +16,7 @@ function item(index: number, content = "") {
 }
 
 async function isolatedTemp(t: TestContext) {
-  const root = await mkdtemp(join(tmpdir(), "pi-dsweb-search-test-"));
+  const root = await mkdtemp(join(tmpdir(), "pi-web-tool-search-test-"));
   const names = ["TMPDIR", "TMP", "TEMP"];
   const previous = names.map(name => process.env[name]);
   names.forEach(name => { process.env[name] = root; });

@@ -7,7 +7,7 @@ import { formatFetch } from "../src/output.ts";
 import { fetchBodyPaths, makeFetchResult } from "./helpers.ts";
 
 async function isolatedTemp(t: TestContext) {
-  const root = await mkdtemp(join(tmpdir(), "pi-dsweb-fetch-test-"));
+  const root = await mkdtemp(join(tmpdir(), "pi-web-tool-fetch-test-"));
   const names = ["TMPDIR", "TMP", "TEMP"];
   const previous = names.map(name => process.env[name]);
   names.forEach(name => { process.env[name] = root; });
@@ -127,7 +127,7 @@ test("truncated fetch saves the exact complete UTF-8 body as private Markdown", 
   const result = await makeFetchResult(page);
   const paths = fetchBodyPaths(result);
   assert.equal(paths.length, 1);
-  assert(/pi-dsweb-fetch-[0-9a-f]{16}\.md$/.test(paths[0]));
+  assert(/pi-web-tool-fetch-[0-9a-f]{16}\.md$/.test(paths[0]));
   assert.equal(await readFile(paths[0], "utf8"), page.content);
   if (process.platform !== "win32") assert.equal((await stat(paths[0])).mode & 0o777, 0o600);
   assert(page.content.startsWith(result.details.content));

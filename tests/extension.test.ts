@@ -126,7 +126,7 @@ test("registered tools execute with mocked transport and reject malformed API da
 
 test("package manifest exposes only the extension entrypoint and host peers", async () => {
   const manifest = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf8"));
-  assert.equal(manifest.name, "pi-dsweb");
+  assert.equal(manifest.name, "pi-web-tool");
   assert(manifest.keywords.includes("pi-package"));
   assert.deepEqual(manifest.pi.extensions, ["./index.ts"]);
   assert(manifest.files.includes("index.ts"));

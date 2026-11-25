@@ -1,4 +1,4 @@
-# pi-dsweb
+# pi-web-tool
 
 为 [Pi](https://pi.dev/) 提供 DeepSeek **网页搜索**与 **Markdown 网页抓取**工具的扩展包。
 
@@ -140,8 +140,8 @@ text(page.content); // 完整原始正文，不是截断预览
 
 | 来源 | 创建条件 | 系统临时目录下的路径 |
 | --- | --- | --- |
-| Search | 结果含非空 `content` | `pi-dsweb-search-*/result-N.md` |
-| Fetch | 正文超过截断阈值 | `pi-dsweb-fetch-<16位随机十六进制>.md` |
+| Search | 结果含非空 `content` | `pi-web-tool-search-*/result-N.md` |
+| Fetch | 正文超过截断阈值 | `pi-web-tool-fetch-<16位随机十六进制>.md` |
 
 文件保存原始正文，不保存完整 JSON。路径提供给模型；Fetch 的超限警告也在终端展示路径。
 
@@ -211,7 +211,7 @@ npm pack --dry-run
 ### 项目结构
 
 ```text
-pi-dsweb/
+pi-web-tool/
 ├── index.ts               # 对外加载入口，转导出 src/index.ts
 ├── src/
 │   ├── index.ts           # 注册工具和生命周期处理
@@ -232,7 +232,7 @@ pi-dsweb/
 
 ### 发布
 
-发布前执行检查和打包预览，再运行 `npm publish`。发布后可以使用 `pi install npm:pi-dsweb` 安装；请先确认 npm 包名及发布状态，本地加载不依赖 npm 发布。
+发布前执行检查和打包预览，再运行 `npm publish`。发布后可以使用 `pi install npm:pi-web-tool` 安装；请先确认 npm 包名及发布状态，本地加载不依赖 npm 发布。
 
 ## 官方参考
 

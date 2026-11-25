@@ -68,7 +68,7 @@ test("expanded search has no result-count cap and hides full JSON paths", async 
   assert(Array.isArray(result.details));
   assert(!output.includes("Full JSON"));
   assert(!output.includes("response.json"));
-  assert(!output.includes("pi-dsweb-"));
+  assert(!output.includes("pi-web-tool-"));
   assert(!output.includes("Showing 50 of"));
   assert.equal(result.details.length, 75);
   assert(!output.includes("LONG ARTICLE BODY"));
@@ -225,7 +225,7 @@ test("call components are reused and display updated arguments", () => {
 });
 
 test("fetch only needs file access when its body is truncated", async (t) => {
-  const dir = await mkdtemp(join(tmpdir(), "pi-dsweb-blocked-test-"));
+  const dir = await mkdtemp(join(tmpdir(), "pi-web-tool-blocked-test-"));
   const blocker = join(dir, "not-a-directory");
   await writeFile(blocker, "test");
   const names = ["TMPDIR", "TMP", "TEMP"];

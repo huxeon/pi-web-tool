@@ -35,7 +35,7 @@ export async function makeSearchResult(response: SearchData, signal?: AbortSigna
     for (const [index, item] of response.results.entries()) {
       if (!item.content) continue;
       signal?.throwIfAborted();
-      contentDirectory ??= await mkdtemp(join(tmpdir(), "pi-dsweb-search-"));
+      contentDirectory ??= await mkdtemp(join(tmpdir(), "pi-web-tool-search-"));
       const path = join(contentDirectory, `result-${index + 1}.md`);
       signal?.throwIfAborted();
       await writeFile(path, item.content, { encoding: "utf8", mode: 0o600, signal });
@@ -79,7 +79,7 @@ export async function makeFetchResult(response: FetchData, signal?: AbortSignal)
   let ownedPath: string | undefined;
   try {
     if (preview.truncated) {
-      const path = join(tmpdir(), `pi-dsweb-fetch-${randomBytes(8).toString("hex")}.md`);
+      const path = join(tmpdir(), `pi-web-tool-fetch-${randomBytes(8).toString("hex")}.md`);
       signal?.throwIfAborted();
       const file = await open(path, "wx", 0o600);
       ownedPath = path;
